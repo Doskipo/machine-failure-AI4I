@@ -21,6 +21,8 @@ curl -X POST http://localhost:8000/predict \
 
 Interactive docs: http://localhost:8000/docs
 
+![Swagger UI: a real /predict request and response](docs/swagger-predict.png)
+
 ## Input validation
 
 Requests are validated with Pydantic before they reach the model. A bad request gets **HTTP 422** with a message saying which field failed. Bad inputs include a wrong type, a missing field, `machine_type` not in `L`/`M`/`H`, or a value outside physical limits (for example a temperature in Celsius instead of Kelvin). The limits are wider than the training range, so unusual but real readings still go through.
