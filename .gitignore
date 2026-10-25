@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local data downloads (train.py fetches the dataset from UCI)
+data/
+
+# Local Claude Code config / installed skills
+.claude/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Note: model.joblib is tracked on purpose — the Docker build copies it into the image.
+.pytest_cache/

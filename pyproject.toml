@@ -1,0 +1,21 @@
+[project]
+name = "machine-failure-ai4i"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.147.0",
+    "joblib>=1.6.0",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "ucimlrepo>=0.0.7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+# Repo root on sys.path so tests can `import app`.
+pythonpath = ["."]
+testpaths = ["tests"]
