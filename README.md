@@ -10,7 +10,7 @@ Requires Docker. From the repo root:
 
 ```bash
 docker build -t ai4i .
-docker run -d --rm --name ai4i -p 8000:8000 ai4i
+docker run -d --rm --name ai4i -p 8000:8000 ai4i && sleep 5   # app needs ~4 s to load the model
 curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"machine_type":"L","air_temperature":300,"process_temperature":310,"rotational_speed":1400,"torque":60,"tool_wear":220}'
 # {"failure_probability":0.9757651266409109,"failure":true}
 ```
