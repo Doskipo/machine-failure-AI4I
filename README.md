@@ -6,22 +6,18 @@ A containerised FastAPI service that takes one machine's sensor reading and retu
 
 ## Run it
 
+Requires Docker. From the repo root:
+
 ```bash
 docker build -t ai4i .
-docker run --rm -p 8000:8000 ai4i
-```
-
-```bash
-curl http://localhost:8000/health
-# {"status":"ok"}
-
-curl -X POST http://localhost:8000/predict \
-  -H "Content-Type: application/json" \
-  -d '{"machine_type":"L","air_temperature":300,"process_temperature":310,"rotational_speed":1400,"torque":60,"tool_wear":220}'
+docker run -d --rm --name ai4i -p 8000:8000 ai4i
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"machine_type":"L","air_temperature":300,"process_temperature":310,"rotational_speed":1400,"torque":60,"tool_wear":220}'
 # {"failure_probability":0.9757651266409109,"failure":true}
 ```
 
-Interactive docs: http://localhost:8000/docs
+Health check: `curl http://localhost:8000/health`. Interactive docs: http://localhost:8000/docs. Stop with `docker stop ai4i`.
+
+On Windows, run the commands in Git Bash or WSL, or send the request from the `/docs` page.
 
 ![Swagger UI: a real /predict request and response](docs/swagger-predict.png)
 
