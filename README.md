@@ -1,5 +1,7 @@
 # AI4I Machine-Failure Predictor
 
+[![tests](https://github.com/Doskipo/machine-failure-AI4I/actions/workflows/tests.yml/badge.svg)](https://github.com/Doskipo/machine-failure-AI4I/actions/workflows/tests.yml)
+
 A containerised FastAPI service that takes one machine's sensor reading and returns the probability it is about to fail, using a scikit-learn model trained on the [AI4I 2020 predictive-maintenance dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset).
 
 ## Run it
@@ -60,6 +62,7 @@ uv run pytest         # API tests: health, prediction, 422 cases
 
 ## Next
 
-- [ ] Tests in CI: GitHub Actions running pytest and the Docker build on every push (Wed 28 Oct)
+- [x] Tests in CI: GitHub Actions runs pytest on every push and PR
+- [ ] Docker build in CI, pushing the image to GHCR
 - [ ] Deploy to an Azure endpoint (Thu 29 Oct)
 - [ ] Drift monitoring: compare live input distributions against the training ranges
